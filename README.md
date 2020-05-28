@@ -6,5 +6,6 @@ This repository contains the samples that demonstrate the functionalities of Cal
  <tr>
   <td><a href="Samples/SpecialDays">Highlight the special dates</a></td> 
   <td><a href="Samples/Blackoutdates">Block the dates</a></td>
+  <td><a href="Samples/WeekNumber">Selected date WeekNumber</a></td>
  </tr>
 </table>
