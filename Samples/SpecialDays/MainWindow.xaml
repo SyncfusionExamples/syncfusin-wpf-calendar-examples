@@ -1,0 +1,35 @@
+﻿<Window x:Class="SpecialDays.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf" 
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
+        xmlns:local="clr-namespace:SpecialDays"
+        Title="CalendarEdit - SpecialDays" Height="450" Width="450">
+    <Window.Resources>
+        <DataTemplate x:Key="special_date">
+            <TextBlock Text="{Binding Day}"
+                       Background="Yellow"/>
+        </DataTemplate>
+        
+        <local:ViewModel x:Key="viewModel">
+            <local:ViewModel.SpecialDates>
+                <syncfusion:SpecialDate Date="05/2/2020" CellTemplate="{StaticResource special_date }"/>
+                <syncfusion:SpecialDate Date="05/6/2020" CellTemplate="{StaticResource special_date }"/>
+                <syncfusion:SpecialDate Date="05/11/2020" CellTemplate="{StaticResource special_date }"/>
+                <syncfusion:SpecialDate Date="05/22/2020" CellTemplate="{StaticResource special_date }"/>
+                <syncfusion:SpecialDate Date="05/25/2020" CellTemplate="{StaticResource special_date }"/>
+            </local:ViewModel.SpecialDates>
+        </local:ViewModel>
+    </Window.Resources>
+    
+    <Grid>
+        <syncfusion:CalendarEdit MouseDoubleClick="calendar_MouseDoubleClick"   DataContext="{StaticResource viewModel}"                         
+                                 SpecialDates="{Binding SpecialDates}" 
+                                 MaxDate="05/30/2020" 
+                                 Name="calendarEdit" 
+                                 Height="250"
+                                 Width="250" />
+    </Grid>
+</Window>
