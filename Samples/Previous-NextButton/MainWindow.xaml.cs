@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace SpecialDays
+namespace Previous_NextButton
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

@@ -1,0 +1,43 @@
+﻿<Window x:Class="Previous_NextButton.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
+        Title="CalendarEdit - Previous-Next button template " Height="350" Width="500">
+    <Window.Resources>
+        <!--Template for Next Buttons in Calendar Control -->
+        <ControlTemplate x:Key="nextScrollButtonTemplate">
+            <Border  Margin="0,0,0,0">
+                <Button Command="syncfusion:CalendarEdit.NextCommand" >
+                    <Button.Content>
+                        <Image Source="Images/1.png"
+                               Height="16" Width="16"
+                               VerticalAlignment="Center" />
+                    </Button.Content>
+                </Button>
+            </Border>
+        </ControlTemplate>
+        
+        <!--Template for Previous Buttons in Calendar Control -->
+        <ControlTemplate x:Key="previousScrollButtonTemplate">
+            <Border Margin="0,0,0,0">
+                <Button Command="syncfusion:CalendarEdit.PrevCommand">
+                    <Button.Content>
+                        <Image Source="Images/2.png"
+                               Height="16" Width="16"
+                               VerticalAlignment="Center" />
+                    </Button.Content>
+                </Button>
+            </Border>
+        </ControlTemplate>
+    </Window.Resources>
+
+    <Grid>
+        <syncfusion:CalendarEdit PreviousScrollButtonTemplate="{StaticResource previousScrollButtonTemplate}" 
+                                 NextScrollButtonTemplate="{StaticResource nextScrollButtonTemplate}"
+                                 Name="calendarEdit" SnapsToDevicePixels="True"
+                                 Width="200" Height="200"/>
+    </Grid>
+</Window>
