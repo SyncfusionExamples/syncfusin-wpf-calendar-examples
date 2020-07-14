@@ -1,0 +1,32 @@
+﻿<Window x:Class="Style.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Style" xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
+        Title="CalendarEdit - Styles" Height="400" Width="400">
+
+    <Window.Resources>
+        
+        <!-- day cell style -->
+        <Style x:Key="dayCell" 
+               TargetType="{x:Type syncfusion:DayCell}">
+            <Setter Property="CornerRadius" Value="0"/>
+            <Setter Property="Background" Value="Pink"/>
+        </Style>
+
+        <!-- day name cell style -->
+        <Style x:Key="daynameCellStyle" 
+           TargetType="{x:Type syncfusion:DayNameCell}">
+            <Setter Property="Background" Value="Yellow"/>
+            <Setter Property="Foreground" Value="Yellow"/>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <syncfusion:CalendarEdit DayCellsStyle="{StaticResource dayCell}" 
+                                 DayNameCellsStyle="{StaticResource daynameCellStyle}" 
+                                 Name="calendarEdit" 
+                                 Width="200" Height="200" />        
+    </Grid>
+</Window>

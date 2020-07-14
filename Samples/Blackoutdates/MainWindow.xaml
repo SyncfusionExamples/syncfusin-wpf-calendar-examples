@@ -4,20 +4,90 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:system="clr-namespace:System;assembly=mscorlib" 
-        xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf" 
+        xmlns:local="clr-namespace:Blackoutdates"
         mc:Ignorable="d" WindowStartupLocation="CenterScreen"
-        Title="MainWindow" Height="450" Width="800">
+        Title="CalendarEdit - Blockoutdays" Height="400" Width="700">
+    <Window.DataContext>
+        <local:ViewModel/>
+    </Window.DataContext>
 
     <Grid>
-        <syncfusion:CalendarEdit  x:Name="calendarEdit"  
-                                  VerticalAlignment="Center" 
-                                  HorizontalAlignment="Center" 
-                                  Width="250" 
-                                  Height="250">
-            <syncfusion:CalendarEdit.BlackoutDates>
-                <syncfusion:BlackoutDatesRange StartDate="1/01/2020" EndDate="1/10/2020"/>
-                <syncfusion:BlackoutDatesRange StartDate="5/01/2020" EndDate="{x:Static system:DateTime.Today}"/>
-            </syncfusion:CalendarEdit.BlackoutDates>
-        </syncfusion:CalendarEdit>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.Column="0">
+            <Grid>
+                <syncfusion:CalendarEdit BlackoutDatesBackground="{Binding BlackoutDatesBackground}"
+                                         BlackoutDatesBorderBrush="{Binding BlackoutDatesBorderBrush}" 
+                                         BlackoutDatesCrossBrush="{Binding BlackoutDatesCrossBrush}"
+                                         BlackoutDatesForeground="{Binding BlackoutDatesForeground}"
+                                         Name="calendarEdit"
+                                         Margin="20" Height="200" Width="200" >
+                    <syncfusion:CalendarEdit.BlackoutDates>
+                        <syncfusion:BlackoutDatesRange StartDate="1/01/2020" EndDate="1/10/2020"/>
+                        <syncfusion:BlackoutDatesRange StartDate="5/01/2020" EndDate="{x:Static system:DateTime.Today}"/>
+                    </syncfusion:CalendarEdit.BlackoutDates>
+                </syncfusion:CalendarEdit>
+            </Grid>
+        </Border>
+
+        <GroupBox Margin="10" 
+                  Grid.Column="1"
+                  HorizontalAlignment="Center" 
+                  VerticalAlignment="Center"
+                  Header="Custom Appearance of Blockoutdays">
+            <Grid HorizontalAlignment="Stretch" 
+                  VerticalAlignment="Stretch"
+                  Margin="5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Margin="3"
+                           Text ="Set Minimum Date" 
+                           Grid.Row="0"
+                           Grid.Column="0"/>
+                <syncfusion:ColorPicker Brush="{Binding BlackoutDatesBackground,Mode=TwoWay}"
+                                        Grid.Row="0" 
+                                        Grid.Column="1"  
+                                        Margin="3"/>
+
+                <TextBlock Margin="3"
+                           Text ="Set Maximum Date"
+                           Grid.Row="1"
+                           Grid.Column="0"/>
+                <syncfusion:ColorPicker Brush="{Binding BlackoutDatesBorderBrush,Mode=TwoWay}"
+                                        Grid.Row="1" 
+                                        Grid.Column="1"  
+                                        Margin="3"/>
+                <TextBlock Margin="3"
+                           Text ="MinMax Hidden"
+                           Grid.Row="2"
+                           Grid.Column="0"/>
+                <syncfusion:ColorPicker Brush="{Binding BlackoutDatesCrossBrush, Mode=TwoWay}" 
+                                        Grid.Row="2" 
+                                        Grid.Column="1"  
+                                        Margin="3"/>
+
+                <TextBlock Margin="3"
+                           Text ="Restrict date selection"
+                           Grid.Row="3"
+                           Grid.Column="0"/>
+                <syncfusion:ColorPicker Brush="{Binding BlackoutDatesForeground,Mode=TwoWay}"
+                                        Grid.Row="3" 
+                                        Grid.Column="1" 
+                                        Margin="3"/>
+            </Grid>
+        </GroupBox>
     </Grid>
 </Window>

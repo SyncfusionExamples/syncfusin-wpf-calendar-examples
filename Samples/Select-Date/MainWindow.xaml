@@ -1,0 +1,368 @@
+﻿<Window x:Class="Select_Date.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Select_Date" xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
+        Title="CalendarEdit - Select Date" Height="600" Width="1200">
+    <Window.DataContext>
+        <local:ViewModel/>
+    </Window.DataContext>
+    <Window.Resources>
+        <DataTemplate x:Key="GroupBox_Header" DataType="DataTemplate">
+            <TextBlock FontWeight="Bold" Text="{Binding}"></TextBlock>
+        </DataTemplate>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1.5*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.Column="0">
+            <Grid>
+                <syncfusion:CalendarEdit Date="{Binding SelectedDate,Mode=TwoWay}"
+                                         AllowMultiplySelection="{Binding AllowMultiplySelection}" 
+                                         TodayRowIsVisible="{Binding TodayRowIsVisible}"
+                                         ShowAbbreviatedDayNames="{Binding ShowAbbreviatedDayNames}"
+                                         ShowAbbreviatedMonthNames="{Binding ShowAbbreviatedMonthNames}"
+                                         SelectedDayCellBackground="{Binding SelectedDayCellBackground}"
+                                         SelectedDayCellBorderBrush="{Binding SelectedDayCellBorderBrush}"
+                                         SelectionForeground="{Binding SelectionForeground}"
+                                         SelectedDayCellHoverBackground="{Binding SelectedDayCellHoverBackground}"
+                                         SelectionBorderBrush="{Binding SelectionBorderBrush}"
+                                         TodayCellSelectedBorderBrush="{Binding TodayCellSelectedBorderBrush}"
+                                         TodayCellSelectedBackground="{Binding TodayCellSelectedBackground}"
+                                         TodayCellForeground="{Binding TodayCellForeground}"
+                                         NotCurrentMonthForeground="{Binding NotCurrentMonthForeground}"
+                                         VisualMode="{Binding VisualMode, Mode=TwoWay}"
+                                         WeekNumberBackground="{Binding WeekNumberBackground, Mode=TwoWay}"
+                                         ShowWeekNumbers="{Binding ShowWeekNumbers, Mode=TwoWay}"
+                                         WeekNumberBorderBrush="{Binding WeekNumberBorderBrush, Mode=TwoWay}"
+                                         WeekNumberForeground="{Binding WeekNumberForeground, Mode=TwoWay}"                                                                              
+                                         WeekNumberHoverBackground="{Binding WeekNumberHoverBackground, Mode=TwoWay}"                                                                              
+                                         WeekNumberHoverBorderBrush="{Binding WeekNumberHoverBorderBrush, Mode=TwoWay}"                                                                              
+                                         WeekNumberHoverForeground="{Binding WeekNumberHoverForeground, Mode=TwoWay}"                                                                              
+                                         Name="calendarEdit"
+                                         Margin="20" Height="250" Width="350" />
+            </Grid>
+        </Border>
+
+         <GroupBox Margin="10" 
+                  Grid.Column="1" 
+                  HeaderTemplate="{StaticResource GroupBox_Header}"
+                  Header="User Options">
+            <Grid>
+                <StackPanel Orientation="Vertical">
+                    <StackPanel Orientation="Horizontal">
+                        <!--Date Selection options-->
+                        <GroupBox Margin="2" 
+                              Grid.Column="1" 
+                              HorizontalAlignment="Center" 
+                              VerticalAlignment="Center"
+                              HeaderTemplate="{StaticResource GroupBox_Header}"
+                              Header="Date Selection options">
+                            <Grid HorizontalAlignment="Stretch" 
+                              VerticalAlignment="Stretch"
+                              Margin="2">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock Margin="3"
+                                       Text ="Select Date" 
+                                       Grid.Row="0"
+                                       Grid.Column="0"/>
+                                <syncfusion:DateTimeEdit DateTime="{Binding SelectedDate, Mode=TwoWay}" 
+                                                     Grid.Row="0" 
+                                                     Grid.Column="1"  
+                                                     Margin="3"/>
+
+
+                                <TextBlock Margin="3"
+                                       Text ="Allow MultiplySelection"
+                                       Grid.Row="1"
+                                       Grid.Column="0"/>
+                                <CheckBox IsChecked="{Binding AllowMultiplySelection, Mode=TwoWay}" 
+                                      Grid.Row="1" 
+                                      Grid.Column="1"  
+                                      Margin="3"/>
+
+                                <TextBlock Margin="3"
+                                       Text ="TodayRow IsVisible"
+                                       Grid.Row="2"
+                                       Grid.Column="0"/>
+                                <CheckBox IsChecked="{Binding TodayRowIsVisible,Mode=TwoWay}"
+                                      Grid.Row="2" 
+                                      Grid.Column="1" 
+                                      Margin="3"/>
+
+                                <TextBlock Margin="3"
+                                       Text ="Show Abbreviated DayNames"
+                                       Grid.Row="3"
+                                       Grid.Column="0"/>
+                                <CheckBox IsChecked="{Binding ShowAbbreviatedDayNames,Mode=TwoWay}"
+                                      Grid.Row="3" 
+                                      Grid.Column="1" 
+                                      Margin="3"/>
+
+                                <TextBlock Margin="3"
+                                       Text ="Show Abbreviated MonthNames"
+                                       Grid.Row="4"
+                                       Grid.Column="0"/>
+                                <CheckBox IsChecked="{Binding ShowAbbreviatedMonthNames,Mode=TwoWay}"
+                                      Grid.Row="4" 
+                                      Grid.Column="1" 
+                                      Margin="3"/>
+
+                                <TextBlock Margin="3"
+                                       Text ="NotCurrentMonth Foreground"
+                                       Grid.Row="5"
+                                       Grid.Column="0"/>
+                                <syncfusion:ColorPicker Brush="{Binding NotCurrentMonthForeground,Mode=TwoWay}"
+                                                    Grid.Row="5" 
+                                                    Grid.Column="1" 
+                                                    Margin="3"/>
+                                <TextBlock Margin="3"
+                                       Text ="Visual Mode"
+                                       Grid.Row="6"
+                                       Grid.Column="0"/>
+                                <ComboBox SelectedItem="{Binding VisualMode,Mode=TwoWay}"
+                                      Grid.Row="6" 
+                                      Grid.Column="1" 
+                                      Margin="3">
+                                    <syncfusion:CalendarVisualMode>All</syncfusion:CalendarVisualMode>
+                                    <syncfusion:CalendarVisualMode>Days</syncfusion:CalendarVisualMode>
+                                    <syncfusion:CalendarVisualMode>Months</syncfusion:CalendarVisualMode>
+                                    <syncfusion:CalendarVisualMode>WeekNumbers</syncfusion:CalendarVisualMode>
+                                    <syncfusion:CalendarVisualMode>Years</syncfusion:CalendarVisualMode>
+                                    <syncfusion:CalendarVisualMode>YearsRange</syncfusion:CalendarVisualMode>
+                                </ComboBox>
+
+                            </Grid>
+                        </GroupBox>
+
+                        <!--Highlight today date-->
+                        <GroupBox Margin="2" 
+                              Grid.Column="1" 
+                              HorizontalAlignment="Center" 
+                              VerticalAlignment="Center"
+                              HeaderTemplate="{StaticResource GroupBox_Header}"
+                              Header="Highlight selected date">
+                            <Grid HorizontalAlignment="Stretch" 
+                              VerticalAlignment="Stretch"
+                              Margin="2">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock Margin="3"
+                                       Text ="SelectedDayCell Background" 
+                                       Grid.Row="0"
+                                       Grid.Column="0"/>
+                                <syncfusion:ColorPicker Brush="{Binding SelectedDayCellBackground, Mode=TwoWay}" 
+                                      Grid.Row="0" 
+                                      Grid.Column="1"  
+                                      Margin="3"/>
+
+                                <TextBlock Margin="3"
+                                       Text ="SelectedDayCell BorderBrush"
+                                       Grid.Row="1"
+                                       Grid.Column="0"/>
+                                <syncfusion:ColorPicker Brush="{Binding SelectedDayCellBorderBrush, Mode=TwoWay}" 
+                                      Grid.Row="1" 
+                                      Grid.Column="1"  
+                                      Margin="3"/>
+
+                                <TextBlock Margin="3"
+                                       Text ="Selection Foreground"
+                                       Grid.Row="2"
+                                       Grid.Column="0"/>
+                                <syncfusion:ColorPicker Brush="{Binding SelectionForeground,Mode=TwoWay}"
+                                      Grid.Row="2" 
+                                      Grid.Column="1" 
+                                      Margin="3"/>
+
+                                <TextBlock Margin="3"
+                                       Text ="SelectedDayCell HoverBackground"
+                                       Grid.Row="3"
+                                       Grid.Column="0"/>
+                                <syncfusion:ColorPicker Brush="{Binding SelectedDayCellHoverBackground,Mode=TwoWay}"
+                                      Grid.Row="3" 
+                                      Grid.Column="1" 
+                                      Margin="3"/>
+
+                                <TextBlock Margin="3"
+                                       Text ="Selection BorderBrush"
+                                       Grid.Row="4"
+                                       Grid.Column="0"/>
+                                <syncfusion:ColorPicker Brush="{Binding SelectionBorderBrush,Mode=TwoWay}"
+                                      Grid.Row="4" 
+                                      Grid.Column="1" 
+                                      Margin="3"/>
+
+                            </Grid>
+                        </GroupBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <!--Highlight today date-->
+                        <GroupBox Margin="2" 
+                              Grid.Column="1" 
+                              HorizontalAlignment="Center" 
+                              VerticalAlignment="Center"
+                              HeaderTemplate="{StaticResource GroupBox_Header}"
+                              Header="Highlight selected date">
+                            <Grid HorizontalAlignment="Stretch" 
+                              VerticalAlignment="Stretch"
+                              Margin="2">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock Margin="3"
+                                       Text ="TodayCellSelected BorderBrush" 
+                                       Grid.Row="0"
+                                       Grid.Column="0"/>
+                                <syncfusion:ColorPicker Brush="{Binding TodayCellSelectedBorderBrush, Mode=TwoWay}" 
+                                      Grid.Row="0" 
+                                      Grid.Column="1"  
+                                      Margin="3"/>
+
+                                <TextBlock Margin="3"
+                                       Text ="TodayCellSelected Background"
+                                       Grid.Row="1"
+                                       Grid.Column="0"/>
+                                <syncfusion:ColorPicker Brush="{Binding TodayCellSelectedBackground, Mode=TwoWay}" 
+                                      Grid.Row="1" 
+                                      Grid.Column="1"  
+                                      Margin="3"/>
+
+                                <TextBlock Margin="3"
+                                       Text ="TodayCell Foreground"
+                                       Grid.Row="2"
+                                       Grid.Column="0"/>
+                                <syncfusion:ColorPicker Brush="{Binding TodayCellForeground,Mode=TwoWay}"
+                                      Grid.Row="2" 
+                                      Grid.Column="1" 
+                                      Margin="3"/>
+                            </Grid>
+                        </GroupBox>
+
+                        <!--Highlight week numbers-->
+                        <GroupBox Margin="2" 
+                              Grid.Column="1" 
+                              HeaderTemplate="{StaticResource GroupBox_Header}"
+                              Header="Highlight week numbers">
+                            <Grid HorizontalAlignment="Stretch" 
+                              VerticalAlignment="Stretch"
+                              Margin="2">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock Margin="3"
+                                       Text ="Show WeekNumbers" 
+                                       Grid.Row="0"
+                                       Grid.Column="0"/>
+                                <CheckBox IsChecked="{Binding ShowWeekNumbers, Mode=TwoWay}" 
+                                          Grid.Row="0" 
+                                          Grid.Column="1"  
+                                          Margin="3"/>
+
+                                <TextBlock Margin="3"
+                                       Text ="WeekNumber Background"
+                                       Grid.Row="1"
+                                       Grid.Column="0"/>
+                                <syncfusion:ColorPicker Brush="{Binding WeekNumberBackground, Mode=TwoWay}" 
+                                                        Grid.Row="1" 
+                                                        Grid.Column="1"  
+                                                        Margin="3"/>
+
+                                <TextBlock Margin="3"
+                                       Text ="WeekNumber BorderBrush"
+                                       Grid.Row="2"
+                                       Grid.Column="0"/>
+                                <syncfusion:ColorPicker Brush="{Binding WeekNumberBorderBrush,Mode=TwoWay}"
+                                      Grid.Row="2" 
+                                      Grid.Column="1" 
+                                      Margin="3"/>
+
+                                <TextBlock Margin="3"
+                                       Text ="WeekNumber Foreground"
+                                       Grid.Row="3"
+                                       Grid.Column="0"/>
+                                <syncfusion:ColorPicker Brush="{Binding WeekNumberForeground,Mode=TwoWay}"
+                                      Grid.Row="3" 
+                                      Grid.Column="1" 
+                                      Margin="3"/>
+
+                                <TextBlock Margin="3"
+                                       Text ="WeekNumber HoverBackground"
+                                       Grid.Row="4"
+                                       Grid.Column="0"/>
+                                <syncfusion:ColorPicker Brush="{Binding WeekNumberHoverBackground,Mode=TwoWay}"
+                                      Grid.Row="4" 
+                                      Grid.Column="1" 
+                                      Margin="3"/>
+
+                                <TextBlock Margin="3"
+                                       Text ="WeekNumber HoverBorderBrush"
+                                       Grid.Row="5"
+                                       Grid.Column="0"/>
+                                <syncfusion:ColorPicker Brush="{Binding WeekNumberHoverBorderBrush,Mode=TwoWay}"
+                                      Grid.Row="5" 
+                                      Grid.Column="1" 
+                                      Margin="3"/>
+
+                                <TextBlock Margin="3"
+                                       Text ="WeekNumber Foreground"
+                                       Grid.Row="6"
+                                       Grid.Column="0"/>
+                                <syncfusion:ColorPicker Brush="{Binding WeekNumberHoverForeground,Mode=TwoWay}"
+                                      Grid.Row="6" 
+                                      Grid.Column="1" 
+                                      Margin="3"/>
+                            </Grid>
+                        </GroupBox>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+        </GroupBox>
+    </Grid>
+</Window>
