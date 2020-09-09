@@ -1,0 +1,175 @@
+﻿<Window x:Class="CalenderEdit_DataTemplateSelector.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CalenderEdit_DataTemplateSelector"
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
+        Title="CalendarEdit - DataTemplateSelector" Height="400" Width="400">
+
+    <Window.Resources>
+
+        <!--Day Cell Templates-->
+        <local:CalendarDataTemplateSelector x:Key="Selector">
+            <local:CalendarDataTemplateSelector.DayCellTemplate1>
+                <DataTemplate>
+                    <Grid>
+                        <TextBlock Text="{Binding}" 
+                               TextAlignment="Center"
+                               Height="17" Width="20" 
+                               Background="Green"
+                               Foreground="Yellow"/>
+                    </Grid>
+                </DataTemplate>
+            </local:CalendarDataTemplateSelector.DayCellTemplate1>
+
+            <local:CalendarDataTemplateSelector.DayCellTemplate2>
+                <DataTemplate>
+                    <Grid>
+                        <TextBlock Text="{Binding}" 
+                               TextAlignment="Center"
+                               Height="17" Width="20" 
+                               Background="Blue"
+                               Foreground="Yellow"/>
+                    </Grid>
+                </DataTemplate>
+            </local:CalendarDataTemplateSelector.DayCellTemplate2>
+
+            <!--DayName Cell Templates-->
+            <local:CalendarDataTemplateSelector.DayNameCellTemplate1>
+                <DataTemplate>
+                    <Grid>
+                        <TextBlock Text="{Binding}" 
+                               TextAlignment="Center"
+                               Height="17" Width="20"
+                               Background="Red"
+                               Foreground="Yellow"/>
+                    </Grid>
+                </DataTemplate>
+            </local:CalendarDataTemplateSelector.DayNameCellTemplate1>
+
+            <local:CalendarDataTemplateSelector.DayNameCellTemplate2>
+                <DataTemplate>
+                    <Grid>
+                        <TextBlock Text="{Binding}" 
+                               TextAlignment="Center"
+                               Height="17" Width="20" 
+                               Background="Black"
+                               Foreground="Yellow"/>
+                    </Grid>
+                </DataTemplate>
+            </local:CalendarDataTemplateSelector.DayNameCellTemplate2>
+
+            <!--Month Cell Templates-->
+            <local:CalendarDataTemplateSelector.MonthCellTemplate1>
+                <DataTemplate>
+                    <Grid>
+                        <TextBlock Text="{Binding}" 
+                               TextAlignment="Center"
+                               Height="25" Width="40"
+                               FontSize="15"
+                               Background="Orange"
+                               Foreground="Yellow"/>
+                    </Grid>
+                </DataTemplate>
+            </local:CalendarDataTemplateSelector.MonthCellTemplate1>
+
+            <local:CalendarDataTemplateSelector.MonthCellTemplate2>
+                <DataTemplate>
+                    <Grid>
+                        <TextBlock Text="{Binding}" 
+                               TextAlignment="Center"
+                               Height="25" Width="40" 
+                               FontSize="15" 
+                               Background="DarkCyan"
+                               Foreground="Yellow"/>
+                    </Grid>
+                </DataTemplate>
+            </local:CalendarDataTemplateSelector.MonthCellTemplate2>
+
+            <!--Year Cell Templates-->
+            <local:CalendarDataTemplateSelector.YearCellTemplate1>
+                <DataTemplate>
+                    <Grid>
+                        <TextBlock Text="{Binding}" 
+                               TextAlignment="Center"
+                               Height="25" Width="40" 
+                               FontSize="15"
+                               Background="LightGreen"
+                               Foreground="Red"/>
+                    </Grid>
+                </DataTemplate>
+            </local:CalendarDataTemplateSelector.YearCellTemplate1>
+
+            <local:CalendarDataTemplateSelector.YearCellTemplate2>
+                <DataTemplate>
+                    <Grid>
+                        <TextBlock Text="{Binding}" 
+                               TextAlignment="Center"
+                               Height="25" Width="40" 
+                               FontSize="15" 
+                               Background="Yellow"
+                               Foreground="Blue"/>
+                    </Grid>
+                </DataTemplate>
+            </local:CalendarDataTemplateSelector.YearCellTemplate2>
+
+            <!--Year range Cell Templates-->
+            <local:CalendarDataTemplateSelector.YearRangeCellTemplate1>
+                <DataTemplate>
+                    <Grid>
+                        <TextBlock Text="{Binding}" 
+                               TextAlignment="Center"
+                               Height="30" Width="40" 
+                               Background="Aqua"
+                               Foreground="Red"/>
+                    </Grid>
+                </DataTemplate>
+            </local:CalendarDataTemplateSelector.YearRangeCellTemplate1>
+
+            <local:CalendarDataTemplateSelector.YearRangeCellTemplate2>
+                <DataTemplate>
+                    <Grid>
+                        <TextBlock Text="{Binding}" 
+                               TextAlignment="Center"
+                               Height="30" Width="40" 
+                               Background="Brown"
+                               Foreground="White"/>
+                    </Grid>
+                </DataTemplate>
+            </local:CalendarDataTemplateSelector.YearRangeCellTemplate2>
+
+            <!--Week numbers cell Templates-->
+            <local:CalendarDataTemplateSelector.WeekNumberCellTemplate1>
+                <DataTemplate>
+                    <Grid>
+                        <TextBlock Text="{Binding}" 
+                               TextAlignment="Center"
+                               Height="18" Width="20" 
+                               Background="Orange"
+                               Foreground="Red"/>
+                    </Grid>
+                </DataTemplate>
+            </local:CalendarDataTemplateSelector.WeekNumberCellTemplate1>
+
+            <local:CalendarDataTemplateSelector.WeekNumberCellTemplate2>
+                <DataTemplate>
+                    <Grid>
+                        <TextBlock Text="{Binding}" 
+                               TextAlignment="Center"
+                               Height="18" Width="20" 
+                               Background="Aqua"
+                               Foreground="Blue"/>
+                    </Grid>
+                </DataTemplate>
+            </local:CalendarDataTemplateSelector.WeekNumberCellTemplate2>
+        </local:CalendarDataTemplateSelector>
+    </Window.Resources>
+    <Grid>
+        <syncfusion:CalendarEdit CalenderEditDataTemplateSelector="{StaticResource Selector}" 
+                                 ShowWeekNumbers="True"
+                                 Width="190" Height="190"
+                                 Name="calendarEdit" />
+    </Grid>
+</Window>

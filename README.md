@@ -29,5 +29,7 @@ This repository contains the samples that demonstrate the functionalities of Cal
  </tr>
  <tr>
   <td><a href="Samples/Previous-NextButton">Previous-Next scroll button template</a></td>
+  <td><a href="Samples/Template">Custom UI for all cells</a></td>
+  <td><a href="Samples/CalenderEdit_DataTemplateSelector">Custom UI for specific cells</a></td>
  </tr> 
 </table>

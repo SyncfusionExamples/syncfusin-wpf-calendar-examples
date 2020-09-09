@@ -10,32 +10,75 @@
 
     <Window.Resources>
 
-        <!-- day cell template -->
-        <DataTemplate x:Key="dayCelltemplate"
-                    DataType="syncfusion:DayCell">
-            <TextBlock TextAlignment="Center"
-                   Foreground="Yellow"
-                   Background="Green"
-                   FontFamily="Tahoma"
-                   FontStyle="Normal"
-                   Text="{Binding Day}"/>
+        <DataTemplate x:Key="dayCell" >
+            <Grid>
+                <TextBlock Text="{Binding Path=Content}" 
+                       TextAlignment="Center"
+                       Height="17" Width="20"
+                       Background="Green"
+                       Foreground="Yellow"/>
+            </Grid>
         </DataTemplate>
 
-        <!-- day name cell  template -->
-        <DataTemplate x:Key="dayCellNametemplate"
-                  DataType="syncfusion:DayNameCell">
-            <TextBlock TextAlignment="Center"
-                   Foreground="Yellow"
-                   Background="Green"
-                   FontFamily="Tahoma"
-                   FontStyle="Normal"
-                   Text="{Binding}"/>
+        <DataTemplate x:Key="dayNameCellsDataTemplate">
+            <Grid>
+                <TextBlock Text="{Binding Path=Content}" 
+                       TextAlignment="Center"
+                       Height="16" Width="20"
+                       Background="Red"
+                       Foreground="Yellow"/>
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Key="monthCellsDataTemplate" >
+            <Grid>
+                <TextBlock Text="{Binding Path=Content}" 
+                       TextAlignment="Center"
+                       Height="17" Width="20"
+                       Background="Green"
+                       Foreground="Yellow"/>
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Key="yearCellsDataTemplate">
+            <Grid>
+                <TextBlock Text="{Binding Path=Content}" 
+                       TextAlignment="Center"
+                       Height="18" Width="30"
+                       Background="Red"
+                       Foreground="Yellow"/>
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Key="yearRangeCellsDataTemplate">
+            <Grid>
+                <TextBlock Text="{Binding Path=Content}" 
+                       TextAlignment="Center"
+                       Height="30" Width="40" 
+                       Background="Blue"
+                       Foreground="Yellow"/>
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Key="weekNumberCellsDataTemplate">
+            <Grid>
+                <TextBlock Text="{Binding Path=Content}" 
+                       TextAlignment="Center"
+                       Height="18" Width="20" 
+                       Background="Blue"
+                       Foreground="Yellow"/>
+            </Grid>
         </DataTemplate>
     </Window.Resources>
     <Grid>
-        <syncfusion:CalendarEdit DayCellsDataTemplate="{StaticResource dayCelltemplate}"
-                                 DayNameCellsDataTemplate="{StaticResource dayCellNametemplate}"  
-                                 Name="calendarEdit" 
-                                 Width="200" Height="200" />
+        <syncfusion:CalendarEdit DayCellsDataTemplate="{StaticResource dayCell}"
+                                 DayNameCellsDataTemplate="{StaticResource dayNameCellsDataTemplate}"
+                                 MonthCellsDataTemplate="{StaticResource monthCellsDataTemplate}"
+                                 YearCellsDataTemplate="{StaticResource yearCellsDataTemplate}"
+                                 YearRangeCellsDataTemplate="{StaticResource yearRangeCellsDataTemplate}"
+                                 WeekNumberCellsDataTemplate="{StaticResource weekNumberCellsDataTemplate}"
+                                 ShowWeekNumbers="True"
+                                 Width="190" Height="190"
+                                 Name="calendarEdit" />
     </Grid>
 </Window>
